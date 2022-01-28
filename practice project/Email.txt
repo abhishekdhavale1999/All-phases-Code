@@ -1,0 +1,62 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class NewemailVerification {
+	
+	
+		   public static boolean Email(String email)
+		   {
+			   String regex = "^(.+)@(.+)$";
+			 //initialize the Pattern object
+		       Pattern pattern = Pattern.compile(regex);
+		       Matcher matcher = pattern.matcher(email);
+		       return matcher.matches();
+
+		       
+		   }
+
+		   public static void main(String[] args) {
+		       List<String> emails = new ArrayList<String>();
+		       
+		       /*   valid email 
+		        
+		       emails.add("abhishek@example.com");
+		       emails.add("kumara@example.com");
+		       
+		       Invalid email
+		       
+		       emails.add("abhishek.example.com");
+		       emails.add("abhi@abhi@example.com");
+		       
+                */
+		       
+		       for (String value : emails) {
+		           System.out.println("The Email address " + value + " is " + (Email(value) ? "valid" : "invalid"));
+		       }
+		       
+		       System.out.println("Enter any email address to check");
+		       
+		       Scanner sc = new Scanner(System.in);
+		       
+		       String input = sc.nextLine();
+		       System.out.println("The Email address " + input + " is " + (Email(input) ? "valid" : "invalid"));
+		       
+		   }
+		   
+}
+
+
+
+
+Output==
+
+Enter any email address to check
+abhishek@gmail.com
+The Email address abhishek@gmail.com is valid
+
+
+
